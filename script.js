@@ -3,12 +3,14 @@ nome = prompt("Digite o seu nome:");
 console.log(nome);
 window.alert(`Olá ${nome}!`);
 let numero = Number.parseInt(Math.random()*10+ 1);
-let tentativas = 0;
+let numeroTentativas = 0;
+let tentativas = [];
 let palpite = 0;
 
-while((palpite != numero) && (tentativas < 5)){
+while((palpite != numero) && (numeroTentativas < 5)){
     palpite = prompt("Digite um número: ");
-    tentativas++;
+    numeroTentativas++;
+    tentativas.push(palpite);
     if(palpite > numero){
         window.alert(`Você errou! O número é menor que ${palpite}. Tente outra vez.`);
     } else {
@@ -20,15 +22,19 @@ while((palpite != numero) && (tentativas < 5)){
 
 if(numero == palpite) {
     let palavraTentativa;
-    palavraTentativa = tentativas==1 ? "tentativa" : "tentativas"
+    palavraTentativa = numeroTentativas==1 ? "tentativa" : "tentativas"
     //if(tentativas == 1)
          //palavraTentativa = "tentativa";
     //else 
        //palavraTentativa = "tentativas";
     window.alert(`Parabéns ${nome}! 
-O número era ${numero}, e você acertou com ${tentativas} ${palavraTentativa}!!`);
+O número era ${numero}, e você acertou com ${numeroTentativas} ${palavraTentativa}!!`);
 } else {
-    window.alert(`Você perdeu! O numero era ${numero}.`);
+    window.alert(`Você esgotou suas tentativas e não acertou! O número era ${numero}.`);
+}
+
+for (let index = 0; index < tentativas.length; index++) {
+    console.log(`Tentativa ${index+1}: ${tentativas[index]}`);
 }
 
 let numeroAleatorio = Math.random();
