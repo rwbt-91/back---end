@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <body id="body">
+        <script>
+            const aluno = {
+                nome: "José",
+                idade: "16",
+                email: "jose@email.escola.br",
+                notas: [4.5, 7.0, 6.0],
+                curso: "Desenvolvimento de Sistemas",
+                media: function(){
+                    let mediaNotas = 0;
+                    for(let i = 0; i < this.notas.length; i++){
+                        mediaNotas += this.notas [i];
+                    }
+                    mediaNotas /= this.notas.length;
+                    return mediaNotas;
+                }
+            }
+            console.log(aluno.nome);
+            console.log(aluno["email"]);
+            console.log(` A média das notas do aluno ${aluno.nome} é ${aluno.media()}`);
+            aluno.notas.push(8.0);
+            console.log(`Média atualizada: ${aluno.media()}`);
+        </script>
+    </body>
+</html>
